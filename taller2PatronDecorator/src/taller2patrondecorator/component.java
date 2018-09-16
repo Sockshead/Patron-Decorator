@@ -11,9 +11,11 @@ package taller2patrondecorator;
  */
 public interface component {
     String valorPago="";
+    String referencia="";
     
-    public void asignarValores(String pValorPago);
+    public void asignarValores(String pValorPago,String pReferencia);
     public String mostrarValores();
+    public String darReferencia();
     
     
 }

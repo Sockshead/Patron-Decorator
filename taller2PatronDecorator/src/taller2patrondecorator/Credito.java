@@ -7,23 +7,22 @@ package taller2patrondecorator;
 
 /**
  *
- * @author JUan Camilo Posada
+ * @author mate_
  */
-public class Efectivo extends MediosDePago {
+public class Credito extends MediosDePago{
     
-    public Efectivo(component pMediosPago) {
+    public Credito(component pMediosPago) {
         super(pMediosPago);
     }
-    
     public String mostrarValores(){
        return mediosPagopse.mostrarValores()+ tipoMedioPago();
     }
-    public void asignarValores(String pValor, String pReferencia){
+    public void asignarValores(String pValor,String pReferencia){
         mediosPagopse.asignarValores(pValor,pReferencia);
     }
-
     private String tipoMedioPago() {
-        return " Pago realizado en efectivo numero de referencia: "+super.darReferencia();
+        
+        return " Pago realizado por Credito Numero de referencia: "+super.darReferencia();
     }
     
 }

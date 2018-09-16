@@ -11,15 +11,22 @@ package taller2patrondecorator;
  */
 public class Pago implements component{
     private String valorPago="";
+    private String referencia="";
 
     @Override
-    public void asignarValores(String pValorPago) {
+    public void asignarValores(String pValorPago, String pReferencia) {
         valorPago=pValorPago;
+        referencia=pReferencia;
     }
 
     @Override
     public String mostrarValores() {
         return "se realizo el pago por valor de : "+valorPago;
+    }
+
+    @Override
+    public String darReferencia() {
+        return referencia;
     }
     
 }

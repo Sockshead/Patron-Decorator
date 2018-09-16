@@ -18,12 +18,11 @@ public class Baloto extends MediosDePago{
     public String mostrarValores(){
        return mediosPagopse.mostrarValores()+ tipoMedioPago();
     }
-    public void asignarValores(String pValor){
-        mediosPagopse.asignarValores(pValor);
+    public void asignarValores(String pValor,String pReferencia){
+        mediosPagopse.asignarValores(pValor,pReferencia);
     }
-
     private String tipoMedioPago() {
-        return " Pago realizado por Baloto Numero de referencia: ";
+        
+        return " Pago realizado por Baloto Numero de referencia: "+super.darReferencia();
     }
-    
 }
