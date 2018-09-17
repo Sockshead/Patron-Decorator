@@ -13,9 +13,10 @@ public interface component {
     String valorPago="";
     String referencia="";
     
-    public void asignarValores(String pValorPago,String pReferencia);
+    public void asignarValores(String pValorPago,String pReferencia, String pUsuario);
     public String mostrarValores();
     public String darReferencia();
+    public String darUsuario();
     
     
 }

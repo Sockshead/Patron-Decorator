@@ -19,10 +19,13 @@ abstract class MediosDePago implements component {
     public String mostrarValores(){
        return mediosPagopse.mostrarValores();
     }
-    public void asignarValores(String pValor, String pReferencia){
-        mediosPagopse.asignarValores(pValor,pReferencia);
+    public void asignarValores(String pValor, String pReferencia,String pUsuario){
+        mediosPagopse.asignarValores(pValor,pReferencia,pUsuario);
     }
     public String darReferencia(){
         return mediosPagopse.darReferencia();
+    }
+    public String darUsuario(){
+        return mediosPagopse.darUsuario();
     }
 }

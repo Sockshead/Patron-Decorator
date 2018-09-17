@@ -12,11 +12,13 @@ package taller2patrondecorator;
 public class Pago implements component{
     private String valorPago="";
     private String referencia="";
+    private String usuario="";
 
     @Override
-    public void asignarValores(String pValorPago, String pReferencia) {
+    public void asignarValores(String pValorPago, String pReferencia,String pUsuario) {
         valorPago=pValorPago;
         referencia=pReferencia;
+        usuario=pUsuario;
     }
 
     @Override
@@ -27,6 +29,11 @@ public class Pago implements component{
     @Override
     public String darReferencia() {
         return referencia;
+    }
+
+    @Override
+    public String darUsuario() {
+        return usuario;
     }
     
 }

@@ -18,8 +18,8 @@ public class Efectivo extends MediosDePago {
     public String mostrarValores(){
        return mediosPagopse.mostrarValores()+ tipoMedioPago();
     }
-    public void asignarValores(String pValor, String pReferencia){
-        mediosPagopse.asignarValores(pValor,pReferencia);
+    public void asignarValores(String pValor, String pReferencia,String pUsuario){
+        mediosPagopse.asignarValores(pValor,pReferencia,pUsuario);
     }
 
     private String tipoMedioPago() {
