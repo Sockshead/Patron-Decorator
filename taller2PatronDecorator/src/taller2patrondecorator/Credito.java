@@ -11,18 +11,20 @@ package taller2patrondecorator;
  */
 public class Credito extends MediosDePago{
     
+    String fecha;
+    String banco;
+    
     public Credito(component pMediosPago) {
         super(pMediosPago);
     }
     public String mostrarValores(){
-       return mediosPagopse.mostrarValores()+ tipoMedioPago();
+       return " Pago realizado por: "+super.mostrarValores()+" fecha: "+this.fecha+" banco: "+this.banco;
     }
-    public void asignarValores(String pValor,String pReferencia,String pUsuario){
-        mediosPagopse.asignarValores(pValor,pReferencia,pUsuario);
-    }
-    private String tipoMedioPago() {
-        
-        return " Pago realizado por Credito Numero de referencia: "+super.darReferencia();
+    public void asignarValores(String pPago){
+        super.asignarValores("Credito");
+        String[] info = pPago.split(",");
+        this.fecha=info[0];
+        this.banco=info[1];
     }
     
 }

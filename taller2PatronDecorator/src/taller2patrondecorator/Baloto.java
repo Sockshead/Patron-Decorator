@@ -11,18 +11,18 @@ package taller2patrondecorator;
  */
 public class Baloto extends MediosDePago{
     
+    String fecha;
+
     public Baloto(component pMediosPago) {
         super(pMediosPago);
     }
     
     public String mostrarValores(){
-       return mediosPagopse.mostrarValores()+ tipoMedioPago();
-    }
-    public void asignarValores(String pValor,String pReferencia,String pUsuario){
-        mediosPagopse.asignarValores(pValor,pReferencia,pUsuario);
-    }
-    private String tipoMedioPago() {
         
-        return " Pago realizado por Baloto Numero de referencia: "+super.darReferencia();
+       return " Pago realizado por: "+super.mostrarValores()+ " Fecha: "+this.fecha;
+    }
+    public void asignarValores(String pPago){
+        super.asignarValores("Baloto");
+        this.fecha=pPago;
     }
 }

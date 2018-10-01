@@ -10,20 +10,19 @@ package taller2patrondecorator;
  * @author JUan Camilo Posada
  */
 public class Efectivo extends MediosDePago {
+    String fecha;
     
     public Efectivo(component pMediosPago) {
         super(pMediosPago);
     }
     
     public String mostrarValores(){
-       return mediosPagopse.mostrarValores()+ tipoMedioPago();
+       return " Pago realizado por: "+super.mostrarValores()+ " Fecha: "+this.fecha;
     }
-    public void asignarValores(String pValor, String pReferencia,String pUsuario){
-        mediosPagopse.asignarValores(pValor,pReferencia,pUsuario);
+    public void asignarValores(String pPago){
+        super.asignarValores("Efectivo");
+        this.fecha=pPago;
     }
 
-    private String tipoMedioPago() {
-        return " Pago realizado en efectivo numero de referencia: "+super.darReferencia();
-    }
     
 }

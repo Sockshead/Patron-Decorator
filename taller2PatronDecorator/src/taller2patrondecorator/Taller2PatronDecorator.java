@@ -1,6 +1,8 @@
 package taller2patrondecorator;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -8,6 +10,7 @@ public class Taller2PatronDecorator {
 
     //variables de clase
     private ArrayList<component> pagos;
+    
     String usuario;
 
     //Métodos
@@ -54,6 +57,7 @@ public class Taller2PatronDecorator {
 
     private void rPago() {
         Random ran = new Random();
+        Date date=new Date();
         component com;
         char opcion;
         do {
@@ -66,36 +70,43 @@ public class Taller2PatronDecorator {
             opcion = x.charAt(0);
             switch (opcion) {
                 case '1':
-                    com = new Baloto(new Pago());
+                    Pago pago= new Pago();
+                    
                     int entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Asignar valor a pagar \n 2. Regresar "));
                     switch (entrada2) {
                         case 1:
                             String Valor = JOptionPane.showInputDialog("Ingrese valor a pagar: ");
-                            com.asignarValores(Valor, "" + (ran.nextInt(9000000) + 1000000), usuario);
+                            pago.asignarValores(Valor+ "," + (ran.nextInt(9000000) + 1000000)+","+ usuario);
+                            com = new Baloto(pago);
+                            com.asignarValores(date+"");
                             pagos.add(com);
                             JOptionPane.showMessageDialog(null, com.mostrarValores());
                             break;
                     }
                     break;
                 case '2':
-                    com = new Efectivo(new Pago());
+                    Pago pagoE= new Pago();
                     entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Asignar valor a pagar \n 2. Regresar "));
                     switch (entrada2) {
                         case 1:
                             String Valor = JOptionPane.showInputDialog("Ingrese valor a pagar: ");
-                            com.asignarValores(Valor, "" + (ran.nextInt(9000000) + 1000000), usuario);
+                            pagoE.asignarValores(Valor+ "," + (ran.nextInt(9000000) + 1000000)+","+ usuario);
+                            com=new Efectivo (pagoE);
+                            com.asignarValores(date+"");
                             pagos.add(com);
                             JOptionPane.showMessageDialog(null, com.mostrarValores());
                             break;
                     }
                     break;
                 case '3':
-                    com = new Credito(new Pago());
+                    Pago pagoC= new Pago();
                     entrada2 = Integer.parseInt(JOptionPane.showInputDialog("1. Asignar valor a pagar \n 2. Regresar "));
                     switch (entrada2) {
                         case 1:
                             String Valor = JOptionPane.showInputDialog("Ingrese valor a pagar: ");
-                            com.asignarValores(Valor, "" + (ran.nextInt(9000000) + 1000000), usuario);
+                            pagoC.asignarValores(Valor+ "," + (ran.nextInt(9000000) + 1000000)+","+ usuario);
+                            com = new Credito (pagoC);
+                            com.asignarValores(date+","+"Bancolombia");
                             pagos.add(com);
                             JOptionPane.showMessageDialog(null, com.mostrarValores());
                             break;
@@ -111,9 +122,15 @@ public class Taller2PatronDecorator {
     }
 
     private void verPagos() {
-        String historial = "Historial de pagos: \n";
+       String historial = "Historial de pagos: \n";
+       String user="";
+       
         for (component pago : pagos) {
-            if (pago.darUsuario().equalsIgnoreCase(usuario)) {
+            String[] info = pago.mostrarValores().split(",");
+            user=info[0];
+            info =user.split(":");
+            user=info[1].trim();
+            if (user.equalsIgnoreCase(usuario)) {
                 historial = historial + pago.mostrarValores() + "\n";
             }
         }

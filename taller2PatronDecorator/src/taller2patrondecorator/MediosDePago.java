@@ -17,15 +17,9 @@ abstract class MediosDePago implements component {
         mediosPagopse=pMediosPago;
     }
     public String mostrarValores(){
-       return mediosPagopse.mostrarValores();
+       return this.mediosPagopse.mostrarValores()+"Pago realizado por: "+mediopag;
     }
-    public void asignarValores(String pValor, String pReferencia,String pUsuario){
-        mediosPagopse.asignarValores(pValor,pReferencia,pUsuario);
-    }
-    public String darReferencia(){
-        return mediosPagopse.darReferencia();
-    }
-    public String darUsuario(){
-        return mediosPagopse.darUsuario();
+    public void asignarValores(String pPago){
+        this.mediopag=pPago;
     }
 }
